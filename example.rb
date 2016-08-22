@@ -32,7 +32,7 @@ def run_example
   resource_client = Azure::ARM::Resources::ResourceManagementClient.new(credentials)
   resource_client.subscription_id = subscription_id
 
-  # key vault client
+  # traffic manager client
   traffic_manager_client = Azure::ARM::TrafficManager::TrafficManagerManagementClient.new(credentials)
   traffic_manager_client.subscription_id = subscription_id
 
