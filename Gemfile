@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'dotenv',                       '~>2.1'
-  gem 'azure_mgmt_resources',         '~>0.5.0'
-  gem 'azure_mgmt_traffic_manager',   '~>0.5.0'
+  gem 'azure_mgmt_resources',         '~>0.6.0'
+  gem 'azure_mgmt_traffic_manager',   '~>0.6.0'
 end
+
