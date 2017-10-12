@@ -47,7 +47,7 @@ def run_example
   #
   # Register subscription for 'Microsoft.KeyVault' namespace
   #
-  provider = resource_client.resources.providers.register('Microsoft.Network')
+  provider = resource_client.providers.register('Microsoft.Network')
   puts "#{provider.namespace} #{provider.registration_state}"
 
   #
@@ -72,14 +72,14 @@ def run_example
     monitor_config.path = '/sample_monitor_page'
   end
 
-  profile = traffic_manager_client.traffic_manager.profiles.create_or_update(RESOURCE_GROUP_NAME, PROFILE_NAME, param)
+  profile = traffic_manager_client.profiles.create_or_update(RESOURCE_GROUP_NAME, PROFILE_NAME, param)
   print_profile(profile)
 
   #
   # list all Traffic Manager Profiles
   #
   puts 'List all Traffic Manager Profiles'
-  profile_list_result = traffic_manager_client.traffic_manager.profiles.list_by_subscription
+  profile_list_result = traffic_manager_client.profiles.list_by_subscription
   profile_list_result.value.each do |profile|
     print_profile(profile)
   end
@@ -90,7 +90,7 @@ def run_example
   puts 'Delete Traffic Manager Profile'
   puts 'Press any key to continue'
   gets
-  traffic_manager_client.traffic_manager.profiles.delete(RESOURCE_GROUP_NAME, PROFILE_NAME)
+  traffic_manager_client.profiles.delete(RESOURCE_GROUP_NAME, PROFILE_NAME)
 
   #
   # delete resource group
@@ -107,13 +107,13 @@ def create_resource_group(resource_client)
     rg.location = REGION
   end
 
-  resource_group = resource_client.resources.resource_groups.create_or_update(RESOURCE_GROUP_NAME, resource_group_params)
+  resource_group = resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME, resource_group_params)
   print_item resource_group
 end
 
 def delete_resource_group(resource_client)
   puts 'Delete a resource group'
-  resource_client.resources.resource_groups.delete(RESOURCE_GROUP_NAME)
+  resource_client.resource_groups.delete(RESOURCE_GROUP_NAME)
 end
 
 def print_item(item)
