@@ -4,9 +4,9 @@ require 'dotenv'
 require 'azure_mgmt_resources'
 require 'azure_mgmt_traffic_manager'
 
-TrafficManager =  Azure::TrafficManager::Management::Profile_Latest
+TrafficManager =  Azure::TrafficManager::Profiles::V2017_09_01_Preview::Mgmt
 TrafficManagerModels = TrafficManager::Models
-Resources = Azure::Resources::Management::Profile_Latest
+Resources = Azure::Resources::Profiles::V2017_05_10::Mgmt
 ResourcesModels = Resources::Models
 
 Dotenv.load(File.join(__dir__, './.env'))
@@ -38,10 +38,10 @@ def run_example
       subscription_id: subscription_id
   }
 
-  # resource client
+  # resource profile client
   resource_client = Resources::Client.new(options)
 
-  # traffic manager client
+  # traffic manager profile client
   traffic_manager_client = TrafficManager::Client.new(options)
 
   #
