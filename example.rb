@@ -4,9 +4,9 @@ require 'dotenv'
 require 'azure_mgmt_resources'
 require 'azure_mgmt_traffic_manager'
 
-TrafficManager =  Azure::TrafficManager::Profiles::V2017_09_01_Preview::Mgmt
+TrafficManager =  Azure::TrafficManager::Profiles::Latest::Mgmt
 TrafficManagerModels = TrafficManager::Models
-Resources = Azure::Resources::Profiles::V2017_05_10::Mgmt
+Resources = Azure::Resources::Profiles::Latest::Mgmt
 ResourcesModels = Resources::Models
 
 Dotenv.load(File.join(__dir__, './.env'))
